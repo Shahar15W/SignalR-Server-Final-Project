@@ -1,0 +1,490 @@
+{
+  "Gamename": "Checkers",
+  "Creator": "Test",
+  "Date": "22/12/26",
+  "Board": {
+    "Texture": "game.png",
+    "Normal": "game.png",
+    "Ao": "game.png"
+  },
+  "Cubes": [
+
+  ],
+  "Pieces": [
+    {
+      "Model": "Checkers.glb",
+      "Color": "0xf2f0e6",
+      "Position": {
+        "X": 1.1,
+        "Y": 20.25,
+        "Z": 8
+      },
+      "Rotation": {
+        "X": 0,
+        "Y": 0,
+        "Z": 0
+      },
+      "Scale": {
+        "X": 2,
+        "Y": 2,
+        "Z": 2
+      }
+    },
+
+    {
+      "Model": "Checkers.glb",
+      "Color": "0xf2f0e6",
+      "Position": {
+        "X": 5.7,
+        "Y": 20.25,
+        "Z": 8
+      },
+      "Rotation": {
+        "X": 0,
+        "Y": 0,
+        "Z": 0
+      },
+      "Scale": {
+        "X": 2,
+        "Y": 2,
+        "Z": 2
+      }
+    },
+
+    {
+      "Model": "Checkers.glb",
+      "Color": "0xf2f0e6",
+      "Position": {
+        "X": -3.4,
+        "Y": 20.25,
+        "Z": 8
+      },
+      "Rotation": {
+        "X": 0,
+        "Y": 0,
+        "Z": 0
+      },
+      "Scale": {
+        "X": 2,
+        "Y": 2,
+        "Z": 2
+      }
+    },
+
+    {
+      "Model": "Checkers.glb",
+      "Color": "0xf2f0e6",
+      "Position": {
+        "X": -8,
+        "Y": 20.25,
+        "Z": 8
+      },
+      "Rotation": {
+        "X": 0,
+        "Y": 0,
+        "Z": 0
+      },
+      "Scale": {
+        "X": 2,
+        "Y": 2,
+        "Z": 2
+      }
+    },
+
+    {
+      "Model": "Checkers.glb",
+      "Color": "0xf2f0e6",
+      "Position": {
+        "X": 3.4,
+        "Y": 20.25,
+        "Z": 5.7
+      },
+      "Rotation": {
+        "X": 0,
+        "Y": 0,
+        "Z": 0
+      },
+      "Scale": {
+        "X": 2,
+        "Y": 2,
+        "Z": 2
+      }
+    },
+
+    {
+      "Model": "Checkers.glb",
+      "Color": "0xf2f0e6",
+      "Position": {
+        "X": 8,
+        "Y": 20.25,
+        "Z": 5.7
+      },
+      "Rotation": {
+        "X": 0,
+        "Y": 0,
+        "Z": 0
+      },
+      "Scale": {
+        "X": 2,
+        "Y": 2,
+        "Z": 2
+      }
+    },
+    {
+      "Model": "Checkers.glb",
+      "Color": "0xf2f0e6",
+      "Position": {
+        "X": -1.1,
+        "Y": 20.25,
+        "Z": 5.7
+      },
+      "Rotation": {
+        "X": 0,
+        "Y": 0,
+        "Z": 0
+      },
+      "Scale": {
+        "X": 2,
+        "Y": 2,
+        "Z": 2
+      }
+    },
+
+    {
+      "Model": "Checkers.glb",
+      "Color": "0xf2f0e6",
+      "Position": {
+        "X": -5.7,
+        "Y": 20.25,
+        "Z": 5.7
+      },
+      "Rotation": {
+        "X": 0,
+        "Y": 0,
+        "Z": 0
+      },
+      "Scale": {
+        "X": 2,
+        "Y": 2,
+        "Z": 2
+      }
+    },
+    {
+      "Model": "Checkers.glb",
+      "Color": "0xf2f0e6",
+      "Position": {
+        "X": 1.1,
+        "Y": 20.25,
+        "Z": 3.4
+      },
+      "Rotation": {
+        "X": 0,
+        "Y": 0,
+        "Z": 0
+      },
+      "Scale": {
+        "X": 2,
+        "Y": 2,
+        "Z": 2
+      }
+    },
+
+    {
+      "Model": "Checkers.glb",
+      "Color": "0xf2f0e6",
+      "Position": {
+        "X": 5.7,
+        "Y": 20.25,
+        "Z": 3.4
+      },
+      "Rotation": {
+        "X": 0,
+        "Y": 0,
+        "Z": 0
+      },
+      "Scale": {
+        "X": 2,
+        "Y": 2,
+        "Z": 2
+      }
+    },
+
+    {
+      "Model": "Checkers.glb",
+      "Color": "0xf2f0e6",
+      "Position": {
+        "X": -3.4,
+        "Y": 20.25,
+        "Z": 3.4
+      },
+      "Rotation": {
+        "X": 0,
+        "Y": 0,
+        "Z": 0
+      },
+      "Scale": {
+        "X": 2,
+        "Y": 2,
+        "Z": 2
+      }
+    },
+
+    {
+      "Model": "Checkers.glb",
+      "Color": "0xf2f0e6",
+      "Position": {
+        "X": -8,
+        "Y": 20.25,
+        "Z": 3.4
+      },
+      "Rotation": {
+        "X": 0,
+        "Y": 0,
+        "Z": 0
+      },
+      "Scale": {
+        "X": 2,
+        "Y": 2,
+        "Z": 2
+      }
+    },
+
+    {
+      "Model": "Checkers.glb",
+      "Color": "0x565656",
+      "Position": {
+        "X": 3.4,
+        "Y": 20.25,
+        "Z": -8
+      },
+      "Rotation": {
+        "X": 0,
+        "Y": 0,
+        "Z": 0
+      },
+      "Scale": {
+        "X": 2,
+        "Y": 2,
+        "Z": 2
+      }
+    },
+
+    {
+      "Model": "Checkers.glb",
+      "Color": "0x565656",
+      "Position": {
+        "X": 8,
+        "Y": 20.25,
+        "Z": -8
+      },
+      "Rotation": {
+        "X": 0,
+        "Y": 0,
+        "Z": 0
+      },
+      "Scale": {
+        "X": 2,
+        "Y": 2,
+        "Z": 2
+      }
+    },
+    {
+      "Model": "Checkers.glb",
+      "Color": "0x565656",
+      "Position": {
+        "X": -1.1,
+        "Y": 20.25,
+        "Z": -8
+      },
+      "Rotation": {
+        "X": 0,
+        "Y": 0,
+        "Z": 0
+      },
+      "Scale": {
+        "X": 2,
+        "Y": 2,
+        "Z": 2
+      }
+    },
+
+    {
+      "Model": "Checkers.glb",
+      "Color": "0x565656",
+      "Position": {
+        "X": -5.7,
+        "Y": 20.25,
+        "Z": -8
+      },
+      "Rotation": {
+        "X": 0,
+        "Y": 0,
+        "Z": 0
+      },
+      "Scale": {
+        "X": 2,
+        "Y": 2,
+        "Z": 2
+      }
+    },
+
+    {
+      "Model": "Checkers.glb",
+      "Color": "0x565656",
+      "Position": {
+        "X": 1.1,
+        "Y": 20.25,
+        "Z": -5.7
+      },
+      "Rotation": {
+        "X": 0,
+        "Y": 0,
+        "Z": 0
+      },
+      "Scale": {
+        "X": 2,
+        "Y": 2,
+        "Z": 2
+      }
+    },
+
+    {
+      "Model": "Checkers.glb",
+      "Color": "0x565656",
+      "Position": {
+        "X": 5.7,
+        "Y": 20.25,
+        "Z": -5.7
+      },
+      "Rotation": {
+        "X": 0,
+        "Y": 0,
+        "Z": 0
+      },
+      "Scale": {
+        "X": 2,
+        "Y": 2,
+        "Z": 2
+      }
+    },
+
+
+    {
+      "Model": "Checkers.glb",
+      "Color": "0x565656",
+      "Position": {
+        "X": -3.4,
+        "Y": 20.25,
+        "Z": -5.7
+      },
+      "Rotation": {
+        "X": 0,
+        "Y": 0,
+        "Z": 0
+      },
+      "Scale": {
+        "X": 2,
+        "Y": 2,
+        "Z": 2
+      }
+    },
+
+    {
+      "Model": "Checkers.glb",
+      "Color": "0x565656",
+      "Position": {
+        "X": -8,
+        "Y": 20.25,
+        "Z": -5.7
+      },
+      "Rotation": {
+        "X": 0,
+        "Y": 0,
+        "Z": 0
+      },
+      "Scale": {
+        "X": 2,
+        "Y": 2,
+        "Z": 2
+      }
+    },
+    {
+      "Model": "Checkers.glb",
+      "Color": "0x565656",
+      "Position": {
+        "X": 3.4,
+        "Y": 20.25,
+        "Z": -3.7
+      },
+      "Rotation": {
+        "X": 0,
+        "Y": 0,
+        "Z": 0
+      },
+      "Scale": {
+        "X": 2,
+        "Y": 2,
+        "Z": 2
+      }
+    },
+
+    {
+      "Model": "Checkers.glb",
+      "Color": "0x565656",
+      "Position": {
+        "X": 8,
+        "Y": 20.25,
+        "Z": -3.7
+      },
+      "Rotation": {
+        "X": 0,
+        "Y": 0,
+        "Z": 0
+      },
+      "Scale": {
+        "X": 2,
+        "Y": 2,
+        "Z": 2
+      }
+    },
+    {
+      "Model": "Checkers.glb",
+      "Color": "0x565656",
+      "Position": {
+        "X": -1.1,
+        "Y": 20.25,
+        "Z": -3.7
+      },
+      "Rotation": {
+        "X": 0,
+        "Y": 0,
+        "Z": 0
+      },
+      "Scale": {
+        "X": 2,
+        "Y": 2,
+        "Z": 2
+      }
+    },
+
+    {
+      "Model": "Checkers.glb",
+      "Color": "0x565656",
+      "Position": {
+        "X": -5.7,
+        "Y": 20.25,
+        "Z": -3.7
+      },
+      "Rotation": {
+        "X": 0,
+        "Y": 0,
+        "Z": 0
+      },
+      "Scale": {
+        "X": 2,
+        "Y": 2,
+        "Z": 2
+      }
+    }
+  ]
+}

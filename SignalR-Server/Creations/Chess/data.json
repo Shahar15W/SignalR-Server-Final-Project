@@ -1,0 +1,652 @@
+{
+    "Gamename": "Chess",
+    "Creator": "Shahar",
+    "Date": "22/12/27",
+    "Board": {
+      "Texture": "game.png",
+      "Normal": "normal.png",
+      "Ao": "ao.png"
+    },
+    "Cubes": [
+      {
+        "Color": "0xf2f0e6",
+
+        "Position": {
+          "X": -8,
+          "Y": 10.5,
+          "Z": 1
+        },
+        "Scale": {
+          "X": 50,
+          "Y": 50,
+          "Z": 50
+        }
+      },
+      {
+        "Color": "0xf2f0e6",
+
+        "Position": {
+          "X": -8,
+          "Y": 10.5,
+          "Z": -1
+        },
+        "Scale": {
+          "X": 50,
+          "Y": 50,
+          "Z": 50
+        }
+      }
+    ],
+    "Pieces": [
+        {
+            "Model": "Pawn.glb",
+            "Color": "0xf2f0e6",
+            "Position": {
+                "X": -8,
+                "Y": 20.25,
+                "Z": -5.7
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        },
+        {
+            "Model": "Pawn.glb",
+            "Color": "0xf2f0e6",
+            "Position": {
+                "X": -5.7,
+                "Y": 20.25,
+                "Z": -5.7
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        },
+        {
+            "Model": "Pawn.glb",
+            "Color": "0xf2f0e6",
+            "Position": {
+                "X": -3.4,
+                "Y": 20.25,
+                "Z": -5.7
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        },
+        {
+            "Model": "Pawn.glb",
+            "Color": "0xf2f0e6",
+            "Position": {
+                "X": -1.1,
+                "Y": 20.25,
+                "Z": -5.7
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        },
+        {
+            "Model": "Pawn.glb",
+            "Color": "0xf2f0e6",
+            "Position": {
+                "X": 8,
+                "Y": 20.25,
+                "Z": -5.7
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        },
+        {
+            "Model": "Pawn.glb",
+            "Color": "0xf2f0e6",
+            "Position": {
+                "X": 5.7,
+                "Y": 20.25,
+                "Z": -5.7
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        },
+        {
+            "Model": "Pawn.glb",
+            "Color": "0xf2f0e6",
+            "Position": {
+                "X": 3.4,
+                "Y": 20.25,
+                "Z": -5.7
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        },
+        {
+            "Model": "Pawn.glb",
+            "Color": "0xf2f0e6",
+            "Position": {
+                "X": 1.1,
+                "Y": 20.25,
+                "Z": -5.7
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        },
+        {
+            "Model": "Rook.glb",
+            "Color": "0xf2f0e6",
+            "Position": {
+                "X": 8,
+                "Y": 20.25,
+                "Z": -8
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        },
+        {
+            "Model": "Rook.glb",
+            "Color": "0xf2f0e6",
+            "Position": {
+                "X": -8,
+                "Y": 20.25,
+                "Z": -8
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        },
+        {
+            "Model": "Knight.glb",
+            "Color": "0xf2f0e6",
+            "Position": {
+                "X": 5.7,
+                "Y": 20.25,
+                "Z": -8
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 180,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        },
+        {
+            "Model": "Knight.glb",
+            "Color": "0xf2f0e6",
+            "Position": {
+                "X": -5.7,
+                "Y": 20.25,
+                "Z": -8
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 180,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        },
+        {
+            "Model": "Bishop.glb",
+            "Color": "0xf2f0e6",
+            "Position": {
+                "X": 3.4,
+                "Y": 20.25,
+                "Z": -8
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        },
+        {
+            "Model": "Bishop.glb",
+            "Color": "0xf2f0e6",
+            "Position": {
+                "X": -3.4,
+                "Y": 20.25,
+                "Z": -8
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        },
+        {
+            "Model": "Queen.glb",
+            "Color": "0xf2f0e6",
+            "Position": {
+                "X": -1.1,
+                "Y": 20.25,
+                "Z": -8
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        },
+
+        {
+            "Model": "King.glb",
+            "Color": "0xf2f0e6",
+            "Position": {
+                "X": 1.1,
+                "Y": 20.25,
+                "Z": -8
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        },
+        {
+            "Model": "Pawn.glb",
+            "Color": "0x565656",
+            "Position": {
+                "X": -8,
+                "Y": 20.25,
+                "Z": 5.7
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        },
+        {
+            "Model": "Pawn.glb",
+            "Color": "0x565656",
+            "Position": {
+                "X": -5.7,
+                "Y": 20.25,
+                "Z": 5.7
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        },
+        {
+            "Model": "Pawn.glb",
+            "Color": "0x565656",
+            "Position": {
+                "X": -3.4,
+                "Y": 20.25,
+                "Z": 5.7
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        },
+        {
+            "Model": "Pawn.glb",
+            "Color": "0x565656",
+            "Position": {
+                "X": -1.1,
+                "Y": 20.25,
+                "Z": 5.7
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        },
+        {
+            "Model": "Pawn.glb",
+            "Color": "0x565656",
+            "Position": {
+                "X": 8,
+                "Y": 20.25,
+                "Z": 5.7
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        },
+        {
+            "Model": "Pawn.glb",
+            "Color": "0x565656",
+            "Position": {
+                "X": 5.7,
+                "Y": 20.25,
+                "Z": 5.7
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        },
+        {
+            "Model": "Pawn.glb",
+            "Color": "0x565656",
+            "Position": {
+                "X": 3.4,
+                "Y": 20.25,
+                "Z": 5.7
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        },
+        {
+            "Model": "Pawn.glb",
+            "Color": "0x565656",
+            "Position": {
+                "X": 1.1,
+                "Y": 20.25,
+                "Z": 5.7
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        },
+        {
+            "Model": "Rook.glb",
+            "Color": "0x565656",
+            "Position": {
+                "X": 8,
+                "Y": 20.25,
+                "Z": 8
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        },
+        {
+            "Model": "Rook.glb",
+            "Color": "0x565656",
+            "Position": {
+                "X": -8,
+                "Y": 20.25,
+                "Z": 8
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        },
+        {
+            "Model": "Knight.glb",
+            "Color": "0x565656",
+            "Position": {
+                "X": 5.7,
+                "Y": 20.25,
+                "Z": 8
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        },
+        {
+            "Model": "Knight.glb",
+            "Color": "0x565656",
+            "Position": {
+                "X": -5.7,
+                "Y": 20.25,
+                "Z": 8
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        },
+        {
+            "Model": "Bishop.glb",
+            "Color": "0x565656",
+            "Position": {
+                "X": 3.4,
+                "Y": 20.25,
+                "Z": 8
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        },
+        {
+            "Model": "Bishop.glb",
+            "Color": "0x565656",
+            "Position": {
+                "X": -3.4,
+                "Y": 20.25,
+                "Z": 8
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        },
+        {
+            "Model": "Queen.glb",
+            "Color": "0x565656",
+            "Position": {
+                "X": -1.1,
+                "Y": 20.25,
+                "Z": 8
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        },
+
+        {
+            "Model": "King.glb",
+            "Color": "0x565656",
+            "Position": {
+                "X": 1.1,
+                "Y": 20.25,
+                "Z": 8
+            },
+            "Rotation": {
+                "X": 0,
+                "Y": 0,
+                "Z": 0
+            },
+            "Scale": {
+                "X": 0.5,
+                "Y": 0.5,
+                "Z": 0.5
+            }
+        }
+    ]
+}
