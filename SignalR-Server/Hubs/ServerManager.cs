@@ -10,6 +10,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Configuration;
 using System.Security.AccessControl;
+using System.Media;
+using System.Runtime.Remoting.Contexts;
+using Microsoft.AspNet.SignalR.Hubs;
+using Microsoft.AspNet.SignalR.Infrastructure;
 
 namespace SignalR_Server.Hubs
 {
@@ -25,6 +29,8 @@ namespace SignalR_Server.Hubs
         public event Action<string, string> PlayerLeftLobby;
         public event Action<string> LobbyCreated;
 
+        public Dictionary<string, string> playerIds = new Dictionary<string, string>();
+
         private ServerManager()
         {
             // Initialize any other resources if needed
@@ -36,15 +42,18 @@ namespace SignalR_Server.Hubs
             {
                 if (!lobbies.ContainsKey(lobbyId))
                 {
-                    string json = File.ReadAllText("F:/מדעי המחשב 2023/פרויקט/SignalR-Server/SignalR-Server/Creations/" + gameType + "/data.json");
-                    Console.WriteLine(json);
+                    string path = (string)System.AppDomain.CurrentDomain.BaseDirectory.Split(new [] { "bin" }, StringSplitOptions.None)[0];
+
+                    Console.WriteLine("Attempting to load path " + path);
+                    string json = File.ReadAllText(path + "/Creations/" + gameType + "/data.json");
+                    Console.WriteLine($"Lobby {lobbyId} created.");
                     lobbies[lobbyId] = new Lobby(json, gameType, new List<string>());
                     LobbyCreated?.Invoke(lobbyId);
                 }
             }
         }
 
-        public bool JoinLobby(string lobbyId, string playerName)
+        public bool JoinLobby(string lobbyId, string playerName, string connectionId)
         {
             lock (locker)
             {
@@ -52,6 +61,8 @@ namespace SignalR_Server.Hubs
                 {
                     lobbies[lobbyId].Players.Add(playerName);
                     PlayerJoinedLobby?.Invoke(lobbyId, playerName);
+                    playerIds[connectionId] = playerName;
+                    MovePlayer(playerName, 0, 0, 0);
                     Console.Write($"Players in lobby {lobbyId}: {string.Join(", ", GetPlayersInLobby(lobbyId))}");
                     Console.WriteLine();
                     return true;
@@ -60,13 +71,15 @@ namespace SignalR_Server.Hubs
             }
         }
 
-        public void LeaveLobby(string lobbyId, string playerName)
+        public void LeaveLobby(string lobbyId, string playerName, string connectionId)
         {
             lock (locker)
             {
                 if (lobbies.ContainsKey(lobbyId))
                 {
                     lobbies[lobbyId].Players.Remove(playerName);
+                    playerIds.Remove(connectionId);
+                    lobbies[lobbyId].PlayerPos.Remove(playerName);
                     PlayerLeftLobby?.Invoke(lobbyId, playerName);
                 }
             }
@@ -85,7 +98,7 @@ namespace SignalR_Server.Hubs
             lock (locker)
             {
                 var ListOfLobbies = new List<Tuple<string,string, dynamic>>(lobbies.Keys.Select(x => new Tuple<string, string, dynamic>(x, lobbies[(string)x].GameType, lobbies[(string)x].GameState)));
-                Console.WriteLine($"All lobbies: {string.Join(", ", ListOfLobbies)}");
+                Console.WriteLine($"All lobbies: {string.Join(", ", ListOfLobbies.Select(x =>  new Tuple<string, string>(x.Item1, x.Item2)))}");
                 return ListOfLobbies;
             }
         }
@@ -95,10 +108,53 @@ namespace SignalR_Server.Hubs
             lock (locker)
             {
                 string gameState = lobbies.ContainsKey(lobbyId) ? lobbies[lobbyId].GameState : null;
-                Console.WriteLine($"Gamestate of lobby {lobbyId}:\n {gameState}");
+                Console.WriteLine($"Gamestate of lobby {lobbyId}:\n{gameState}");
                 return gameState;
             }
-        } 
+        }
+        public dynamic GetGameType(string lobbyId)
+        {
+            lock (locker)
+            {
+                string gameType = lobbies.ContainsKey(lobbyId) ? lobbies[lobbyId].GameType : null;
+                Console.WriteLine($"Game type of lobby {lobbyId}:\n{gameType}");
+                return gameType;
+            }
+        }
+
+        public string GetPlayerLobby(string player)
+        {
+            Console.WriteLine($"Trying to find player {player}");
+            try
+            {
+                string result = lobbies.FirstOrDefault(l => l.Value.Players.Where(p => p == player).Count() > 0).Key;
+                Console.WriteLine($"Found player {player} in lobby {result}");
+                return result;
+            }
+            catch
+            {
+                Console.WriteLine($"Player {player} wasnt found");
+                return null;
+            }
+        }
+
+        public string GetPlayer(string playerId)
+        {
+            Console.WriteLine($"Trying to find player name for id {playerId}");
+            return playerIds[playerId];
+        }
+
+        public void MovePlayer(string player, double x, double y, double z)
+        {
+            lobbies[GetPlayerLobby(player)].PlayerPos[player] = new Tuple<double, double, double>(x, y, z);
+            return;
+        }
+
+        public Dictionary<string, Tuple<double, double, double>> GetPlayersPos(string lobby)
+        {
+            //getting list of all player pos
+            return lobbies[lobby].PlayerPos;
+        }
 
         // Implement other methods as needed
 
@@ -115,11 +171,18 @@ namespace SignalR_Server.Hubs
             public string GameType { get; set; }
             public List<string> Players { get; set; }
 
+            public Dictionary<string, Tuple<double, double, double>> PlayerPos { get; set; }
+
             public Lobby(dynamic gameState, string gameType, List<string> players)
             {
                 GameState = gameState;
                 GameType = gameType;
                 Players = players;
+                PlayerPos = new Dictionary<string, Tuple<double, double, double>>();
+                foreach(string player in players)
+                {
+                    PlayerPos.Add(player, new Tuple<double, double, double>(0,0,0));
+                }
             }
 
             public Lobby(Lobby other)
@@ -127,6 +190,7 @@ namespace SignalR_Server.Hubs
                 GameState = other.GameState;
                 GameType = other.GameType;
                 Players = other.Players;
+                PlayerPos = other.PlayerPos;
             }
         }
     }

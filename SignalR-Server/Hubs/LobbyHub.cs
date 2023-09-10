@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNet.SignalR.Hubs;
+using static SignalR_Server.Hubs.ServerManager;
 
 namespace SignalR_Server.Hubs
 {
@@ -34,7 +35,10 @@ namespace SignalR_Server.Hubs
         {
             // Log or handle the disconnect event
             Console.WriteLine($"User {Context.ConnectionId} has disconnected."); // Display in server console
-
+            string player = _serverManager.GetPlayer(Context.ConnectionId);
+            string lobbyId = _serverManager.GetPlayerLobby(player);
+            Console.WriteLine($"User {Context.ConnectionId} identified as {player}, leaving {lobbyId}");
+            LeaveLobby(lobbyId, player);
             return base.OnDisconnected(stopCalled);
         }
 
@@ -49,7 +53,7 @@ namespace SignalR_Server.Hubs
         {
             Console.WriteLine($"User {Context.ConnectionId} connected to {lobbyId} as {playerName}."); // Display in server console
 
-            if (_serverManager.JoinLobby(lobbyId, playerName))
+            if (_serverManager.JoinLobby(lobbyId, playerName, Context.ConnectionId))
             {
                 Groups.Add(Context.ConnectionId, lobbyId);
             }
@@ -62,7 +66,7 @@ namespace SignalR_Server.Hubs
 
         public void LeaveLobby(string lobbyId, string playerName)
         {
-            _serverManager.LeaveLobby(lobbyId, playerName);
+            _serverManager.LeaveLobby(lobbyId, playerName, Context.ConnectionId);
             Groups.Remove(Context.ConnectionId, lobbyId);
         }
 
@@ -93,6 +97,27 @@ namespace SignalR_Server.Hubs
             Clients.Caller.GameState(json);
         }
 
+        public void GetGameType(string lobbyId)
+        {
+            Console.WriteLine($"User {Context.ConnectionId} requested game type of lobby {lobbyId}."); // Display in server console
+            var type = _serverManager.GetGameType(lobbyId);
+            Clients.Caller.GameType(type);
+        }
+
+        public void MovePlayer(string player, double x, double y, double z)
+        {
+            Console.WriteLine($"User {Context.ConnectionId} as {player} moved to {x}, {y}, {z}."); // Display in server console
+            _serverManager.MovePlayer(player, x, y, z);
+            var lobby = _serverManager.GetPlayerLobby(player);
+            Clients.OthersInGroup(lobby).PlayerMoved(player, x, y, z);
+        }
+
+        public void GetPlayersPos(string lobby)
+        {
+            //getting list of all player pos
+            var pos = _serverManager.GetPlayersPos(lobby);
+            Clients.Caller.PlayersPos(pos);
+        }
 
         private void OnPlayerJoinedLobby(string lobbyId, string playerName)
         {
