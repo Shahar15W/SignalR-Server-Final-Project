@@ -104,12 +104,20 @@ namespace SignalR_Server.Hubs
             Clients.Caller.GameType(type);
         }
 
-        public void MovePlayer(string player, double x, double y, double z)
+        public void MovePlayer(string player, double x, double y, double z, double rx, double ry, double rz)
         {
-            Console.WriteLine($"User {Context.ConnectionId} as {player} moved to {x}, {y}, {z}."); // Display in server console
-            _serverManager.MovePlayer(player, x, y, z);
-            var lobby = _serverManager.GetPlayerLobby(player);
-            Clients.OthersInGroup(lobby).PlayerMoved(player, x, y, z);
+            Console.WriteLine($"User {Context.ConnectionId} as {player} moved to {x}, {y}, {z}, looking at direction {rx}, {ry}, {rz} ."); // Display in server console
+            _serverManager.MovePlayer(player, x, y, z, rx, ry, rz);
+            string lobby = _serverManager.GetPlayerLobby(player);
+            Clients.OthersInGroup(lobby).PlayerMoved(player, x, y, z, rx, ry, rz);
+        }
+
+        public void MoveCursor(string player, double x, double y, double z)
+        {
+            Console.WriteLine($"User {Context.ConnectionId} as {player} moved cursor to {x}, {y}, {z}"); // Display in server console
+            _serverManager.MoveCursor(player, x, y, z);
+            string lobby = _serverManager.GetPlayerLobby(player);
+            Clients.OthersInGroup(lobby).CursorMoved(player, x, y, z);
         }
 
         public void GetPlayersPos(string lobby)
@@ -117,6 +125,13 @@ namespace SignalR_Server.Hubs
             //getting list of all player pos
             var pos = _serverManager.GetPlayersPos(lobby);
             Clients.Caller.PlayersPos(pos);
+        }
+
+        public void GetCursors(string lobby)
+        {
+            //getting list of all player pos
+            var cursors = _serverManager.GetCursors(lobby);
+            Clients.Caller.CursorsPos(cursors);
         }
 
         private void OnPlayerJoinedLobby(string lobbyId, string playerName)

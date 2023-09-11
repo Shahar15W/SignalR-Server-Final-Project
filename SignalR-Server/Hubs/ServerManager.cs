@@ -62,7 +62,9 @@ namespace SignalR_Server.Hubs
                     lobbies[lobbyId].Players.Add(playerName);
                     PlayerJoinedLobby?.Invoke(lobbyId, playerName);
                     playerIds[connectionId] = playerName;
-                    MovePlayer(playerName, 0, 0, 0);
+                    MoveCursor(playerName, 0, 0, 0);
+                    MovePlayer(playerName, 0, 0, 0, 0, 0, 0);
+
                     Console.Write($"Players in lobby {lobbyId}: {string.Join(", ", GetPlayersInLobby(lobbyId))}");
                     Console.WriteLine();
                     return true;
@@ -80,6 +82,7 @@ namespace SignalR_Server.Hubs
                     lobbies[lobbyId].Players.Remove(playerName);
                     playerIds.Remove(connectionId);
                     lobbies[lobbyId].PlayerPos.Remove(playerName);
+                    lobbies[lobbyId].Cursors.Remove(playerName);
                     PlayerLeftLobby?.Invoke(lobbyId, playerName);
                 }
             }
@@ -102,6 +105,8 @@ namespace SignalR_Server.Hubs
                 return ListOfLobbies;
             }
         }
+
+
 
         public dynamic GetGameState(string lobbyId)
         {
@@ -144,16 +149,31 @@ namespace SignalR_Server.Hubs
             return playerIds[playerId];
         }
 
-        public void MovePlayer(string player, double x, double y, double z)
+        public void MovePlayer(string player, double x, double y, double z, double rx, double ry, double rz)
         {
-            lobbies[GetPlayerLobby(player)].PlayerPos[player] = new Tuple<double, double, double>(x, y, z);
+            lobbies[GetPlayerLobby(player)].PlayerPos[player] = new Tuple<double, double, double, double, double, double>(x, y, z, rx, ry, rz);
             return;
         }
 
-        public Dictionary<string, Tuple<double, double, double>> GetPlayersPos(string lobby)
+        public void MoveCursor(string player, double x, double y, double z)
+        {
+            lobbies[GetPlayerLobby(player)].Cursors[player] = new Tuple<double, double, double>(x, y, z);
+            return;
+        }
+
+        public Dictionary<string, Tuple<double, double, double, double, double, double>> GetPlayersPos(string lobby)
         {
             //getting list of all player pos
             return lobbies[lobby].PlayerPos;
+        }
+
+        public Dictionary<string, Tuple<double, double, double>> GetCursors(string lobby)
+        {
+
+            Console.WriteLine("Getting cursors");
+            Console.WriteLine(lobbies[lobby].Cursors);
+            //getting list of all player pos
+            return lobbies[lobby].Cursors;
         }
 
         // Implement other methods as needed
@@ -171,17 +191,20 @@ namespace SignalR_Server.Hubs
             public string GameType { get; set; }
             public List<string> Players { get; set; }
 
-            public Dictionary<string, Tuple<double, double, double>> PlayerPos { get; set; }
+            public Dictionary<string, Tuple<double, double, double, double, double, double>> PlayerPos { get; set; }
 
+            public Dictionary<string, Tuple<double, double, double>> Cursors { get; set; }
             public Lobby(dynamic gameState, string gameType, List<string> players)
             {
                 GameState = gameState;
                 GameType = gameType;
                 Players = players;
-                PlayerPos = new Dictionary<string, Tuple<double, double, double>>();
-                foreach(string player in players)
+                PlayerPos = new Dictionary<string, Tuple<double, double, double, double, double, double>>();
+                Cursors = new Dictionary<string, Tuple<double, double, double>>();
+                foreach (string player in players)
                 {
-                    PlayerPos.Add(player, new Tuple<double, double, double>(0,0,0));
+                    PlayerPos.Add(player, new Tuple<double, double, double, double, double, double>(0,0,0,0,0,0));
+                    Cursors.Add(player, new Tuple<double, double, double>(0, 0, 0));
                 }
             }
 
@@ -191,6 +214,7 @@ namespace SignalR_Server.Hubs
                 GameType = other.GameType;
                 Players = other.Players;
                 PlayerPos = other.PlayerPos;
+                Cursors = other.Cursors;
             }
         }
     }
